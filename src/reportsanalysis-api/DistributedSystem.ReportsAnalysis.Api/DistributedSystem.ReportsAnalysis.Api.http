@@ -1,0 +1,6 @@
+@DistributedSystem.ReportsAnalysis.Api_HostAddress = http://localhost:5285
+
+GET {{DistributedSystem.ReportsAnalysis.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,6 @@
+@DistributedSystem.FinanceApproval.Api_HostAddress = http://localhost:5201
+
+GET {{DistributedSystem.FinanceApproval.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

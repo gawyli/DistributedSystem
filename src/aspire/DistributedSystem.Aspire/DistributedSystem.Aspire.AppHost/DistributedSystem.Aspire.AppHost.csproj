@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsAspireHost>true</IsAspireHost>
+    <UserSecretsId>0617ddb2-4dc3-4992-a450-96cf7339c77d</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\financeapproval-api\DistributedSystem.FinanceApproval.Api\DistributedSystem.FinanceApproval.Api.csproj" />
+    <ProjectReference Include="..\..\..\inventorycontol-api\DistributedSystem.InventoryControl.Api\DistributedSystem.InventoryControl.Api.csproj" />
+    <ProjectReference Include="..\..\..\loyaltycard-api\DistributedSystem.LoyaltyCard.Api\DistributedSystem.LoyaltyCard.Api.csproj" />
+    <ProjectReference Include="..\..\..\pricecontrol-api\DistributedSystem.PriceControl.Api\DistributedSystem.PriceControl.Api.csproj" />
+    <ProjectReference Include="..\..\..\reportsanalysis-api\DistributedSystem.ReportsAnalysis.Api\DistributedSystem.ReportsAnalysis.Api.csproj" />
+    <ProjectReference Include="..\DistributedSystem.Aspire.ApiService\DistributedSystem.Aspire.ApiService.csproj" />
+    <ProjectReference Include="..\DistributedSystem.Aspire.Web\DistributedSystem.Aspire.Web.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="8.0.0" />
+  </ItemGroup>
+
+</Project>
