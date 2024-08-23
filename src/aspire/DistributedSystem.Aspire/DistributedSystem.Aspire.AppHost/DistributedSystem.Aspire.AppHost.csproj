@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -10,17 +10,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\financeapproval-api\DistributedSystem.FinanceApproval.Api\DistributedSystem.FinanceApproval.Api.csproj" />
+    <ProjectReference Include="..\..\..\api-gateway\DistributedSystem.ApiGateway.Api\DistributedSystem.ApiGateway.Api.csproj" />
+    <ProjectReference Include="..\..\..\client-web\DistributedSystem.Client.Web\DistributedSystem.Client.Web.csproj" />
     <ProjectReference Include="..\..\..\inventorycontol-api\DistributedSystem.InventoryControl.Api\DistributedSystem.InventoryControl.Api.csproj" />
     <ProjectReference Include="..\..\..\loyaltycard-api\DistributedSystem.LoyaltyCard.Api\DistributedSystem.LoyaltyCard.Api.csproj" />
-    <ProjectReference Include="..\..\..\pricecontrol-api\DistributedSystem.PriceControl.Api\DistributedSystem.PriceControl.Api.csproj" />
+    <ProjectReference Include="..\..\..\product-api\DistributedSystem.Product.Api\DistributedSystem.Product.Api.csproj" />
+    <ProjectReference Include="..\..\..\product-api\DistributedSystem.Product.MigrationService\DistributedSystem.Product.MigrationService.csproj" />
     <ProjectReference Include="..\..\..\reportsanalysis-api\DistributedSystem.ReportsAnalysis.Api\DistributedSystem.ReportsAnalysis.Api.csproj" />
-    <ProjectReference Include="..\DistributedSystem.Aspire.ApiService\DistributedSystem.Aspire.ApiService.csproj" />
     <ProjectReference Include="..\DistributedSystem.Aspire.Web\DistributedSystem.Aspire.Web.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aspire.Hosting.AppHost" Version="8.0.0" />
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="8.1.0" />
   </ItemGroup>
 
 </Project>
