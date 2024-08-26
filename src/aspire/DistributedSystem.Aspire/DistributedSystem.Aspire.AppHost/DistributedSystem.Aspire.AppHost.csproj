@@ -9,19 +9,28 @@
     <UserSecretsId>0617ddb2-4dc3-4992-a450-96cf7339c77d</UserSecretsId>
   </PropertyGroup>
 
+	
+	
   <ItemGroup>
     <ProjectReference Include="..\..\..\api-gateway\DistributedSystem.ApiGateway.Api\DistributedSystem.ApiGateway.Api.csproj" />
     <ProjectReference Include="..\..\..\client-web\DistributedSystem.Client.Web\DistributedSystem.Client.Web.csproj" />
     <ProjectReference Include="..\..\..\inventorycontol-api\DistributedSystem.InventoryControl.Api\DistributedSystem.InventoryControl.Api.csproj" />
+    <ProjectReference Include="..\..\..\inventorycontol-api\DistributedSystem.InventoryControl.WorkerService\DistributedSystem.InventoryControl.WorkerService.csproj" />
     <ProjectReference Include="..\..\..\loyaltycard-api\DistributedSystem.LoyaltyCard.Api\DistributedSystem.LoyaltyCard.Api.csproj" />
+    <ProjectReference Include="..\..\..\messagebroker-api\DistributedSystem.MessageBroker.Api\DistributedSystem.MessageBroker.Api.csproj" />
+    <ProjectReference Include="..\..\..\messagebroker-api\DistributedSystem.MessageBroker.MigrationService\DistributedSystem.MessageBroker.MigrationService.csproj" />
     <ProjectReference Include="..\..\..\product-api\DistributedSystem.Product.Api\DistributedSystem.Product.Api.csproj" />
     <ProjectReference Include="..\..\..\product-api\DistributedSystem.Product.MigrationService\DistributedSystem.Product.MigrationService.csproj" />
+    <ProjectReference Include="..\..\..\product-api\DistributedSystem.Product.WorkerService\DistributedSystem.Product.WorkerService.csproj" />
     <ProjectReference Include="..\..\..\reportsanalysis-api\DistributedSystem.ReportsAnalysis.Api\DistributedSystem.ReportsAnalysis.Api.csproj" />
     <ProjectReference Include="..\DistributedSystem.Aspire.Web\DistributedSystem.Aspire.Web.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Aspire.Hosting.AppHost" Version="8.1.0" />
+    <PackageReference Include="Aspire.Hosting.Azure.Storage" Version="8.1.0" />
+    <PackageReference Include="Aspire.Hosting.PostgreSQL" Version="8.1.0" />
+    <PackageReference Include="Aspire.Hosting.RabbitMQ" Version="8.1.0" />
   </ItemGroup>
 
 </Project>

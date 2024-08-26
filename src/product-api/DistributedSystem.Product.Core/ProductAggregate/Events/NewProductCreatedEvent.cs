@@ -6,6 +6,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DistributedSystem.Product.Core.ProductAggregate.Events;
+
 public class NewProductCreatedEvent : BaseDomainEvent
 {
+    public Product Product { get; set; }
+
+    public NewProductCreatedEvent(Product product)
+    {
+        this.Product = product;
+    }
 }

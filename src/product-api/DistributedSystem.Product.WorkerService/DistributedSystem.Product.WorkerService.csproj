@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-DistributedSystem.Product.WorkerService-a92aa81d-698b-4f8d-8182-5ef7be481270</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\aspire\DistributedSystem.Aspire\DistributedSystem.Aspire.ServiceDefaults\DistributedSystem.Aspire.ServiceDefaults.csproj" />
+    <ProjectReference Include="..\DistributedSystem.Product.Infrastructure\DistributedSystem.Product.Infrastructure.csproj" />
+  </ItemGroup>
+</Project>

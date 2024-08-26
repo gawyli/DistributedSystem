@@ -18,8 +18,6 @@
   <ItemGroup>
     <ProjectReference Include="..\..\aspire\DistributedSystem.Aspire\DistributedSystem.Aspire.ServiceDefaults\DistributedSystem.Aspire.ServiceDefaults.csproj" />
     <ProjectReference Include="..\..\shared\DistributedSystem.Shared.Api\DistributedSystem.Shared.Api.csproj" />
-    <ProjectReference Include="..\..\shared\DistributedSystem.Shared.Infrastructure\DistributedSystem.Shared.Infrastructure.csproj" />
-    <ProjectReference Include="..\DistributedSystem.Product.Core\DistributedSystem.Product.Core.csproj" />
     <ProjectReference Include="..\DistributedSystem.Product.Infrastructure\DistributedSystem.Product.Infrastructure.csproj" />
   </ItemGroup>
 

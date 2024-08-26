@@ -1,4 +1,5 @@
 ﻿using DistributedSystem.Shared.Core.Entities;
+using DistributedSystem.Shared.Core.Entities.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,20 +8,11 @@ using System.Threading.Tasks;
 
 namespace DistributedSystem.Product.Core.ProductAggregate;
 
-public enum StockLevel
-{
-    OutOfStock,
-    Low,
-    Medium,
-    High
-}
-
 public class Product : BaseAggregateRoot
 {
     public string Name { get; private set; }
     public decimal Price { get; private set; }
     public int Quantity { get; private set; }
-    public StockLevel StockLevel => GetStockLevel();
     
     public SaleOffer? SaleOffer { get; private set; }
 
@@ -55,14 +47,5 @@ public class Product : BaseAggregateRoot
 
         return Price;
     }
-    public StockLevel GetStockLevel()
-    {
-        return this.Quantity switch
-        {
-            < 1 => StockLevel.OutOfStock,
-            < 10 => StockLevel.Low,
-            < 100 => StockLevel.Medium,
-            _ => StockLevel.High
-        };
-    }
+    
 }

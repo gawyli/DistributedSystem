@@ -13,7 +13,6 @@ public static class InfrastructureRegistration
 {
     public static IServiceCollection AddSharedInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
-
         services.AddSingleton<IClock, UtcClock>();
 
         return services;

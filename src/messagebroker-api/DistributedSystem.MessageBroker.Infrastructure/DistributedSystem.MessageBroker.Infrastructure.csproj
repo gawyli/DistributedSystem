@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\shared\DistributedSystem.Shared.Infrastructure.CapOutbox\DistributedSystem.Shared.Infrastructure.CapOutbox.csproj" />
+    <ProjectReference Include="..\..\shared\DistributedSystem.Shared.Infrastructure.Ef\DistributedSystem.Shared.Infrastructure.Ef.csproj" />
+    <ProjectReference Include="..\..\shared\DistributedSystem.Shared.Infrastructure\DistributedSystem.Shared.Infrastructure.csproj" />
+    <ProjectReference Include="..\DistributedSystem.MessageBroker.IntegrationEvents\DistributedSystem.MessageBroker.Core.csproj" />
+  </ItemGroup>
+
+</Project>

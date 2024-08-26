@@ -88,7 +88,11 @@ public abstract class EfRepository : IRepository, IDbContextAccessor
         await _sqlDbContext.SaveChangesAsync(cancellationToken);
     }
 
-    
+    public async Task<ITransaction> BeginTransactionAsync<T>(CancellationToken cancellationToken)
+    {
+        return new DatabaseTransaction(await _sqlDbContext.Database.BeginTransactionAsync(cancellationToken));
+    }
+
     public Task<int> CountAsync<T>(CancellationToken cancellationToken) where T : BaseEntity
     {
         return _sqlDbContext.Set<T>().CountAsync(cancellationToken);
@@ -137,10 +141,7 @@ public abstract class EfRepository : IRepository, IDbContextAccessor
     //    return await specificationResult.ToListAsync(cancellationToken);
     //}
 
-    //public async Task<ITransaction> BeginTransactionAsync<T>(CancellationToken cancellationToken)
-    //{
-    //    return new DatabaseTransaction(await _sqlDbContext.Database.BeginTransactionAsync(cancellationToken));
-    //}
+    
 
     /// <inheritdoc />
     //public Task<int> CountAsync<T>(ISpecification<T> specification, CancellationToken cancellationToken)

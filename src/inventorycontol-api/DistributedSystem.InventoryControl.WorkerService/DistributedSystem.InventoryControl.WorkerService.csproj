@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-DistributedSystem.InventoryControl.WorkerService-6924c9b2-618a-45ab-bf88-b711b6102405</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\aspire\DistributedSystem.Aspire\DistributedSystem.Aspire.ServiceDefaults\DistributedSystem.Aspire.ServiceDefaults.csproj" />
+    <ProjectReference Include="..\DistributedSystem.InventoryControl.Infrastructure\DistributedSystem.InventoryControl.Infrastructure.csproj" />
+  </ItemGroup>
+</Project>

@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\aspire\DistributedSystem.Aspire\DistributedSystem.Aspire.ServiceDefaults\DistributedSystem.Aspire.ServiceDefaults.csproj" />
+    <ProjectReference Include="..\..\shared\DistributedSystem.Shared.Api\DistributedSystem.Shared.Api.csproj" />
   </ItemGroup>
 
 </Project>

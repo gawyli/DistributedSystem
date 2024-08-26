@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DistributedSystem.Shared.Core\DistributedSystem.Shared.Core.csproj" />
+    <ProjectReference Include="..\DistributedSystem.Shared.Infrastructure\DistributedSystem.Shared.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

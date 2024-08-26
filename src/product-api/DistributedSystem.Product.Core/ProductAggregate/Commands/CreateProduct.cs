@@ -1,4 +1,5 @@
-﻿using DistributedSystem.Shared.Core.Abstractions;
+﻿using DistributedSystem.Product.Core.ProductAggregate.Events.Outbox;
+using DistributedSystem.Shared.Core.Abstractions;
 using DistributedSystem.Shared.Core.Handlers;
 using MediatR;
 using System;
@@ -30,16 +31,32 @@ public static class CreateProduct
 
     public class Handler : BaseCommandHandler, IRequestHandler<Command, Product>
     {
-        public Handler(IRepository repository) : base(repository)
+        private readonly IRepository _repository;
+        private readonly IOutbox _outbox;
+
+        public Handler(IRepository repository, IOutbox outbox) : base(repository)
         {
-            
+            _repository = repository;
+            _outbox = outbox;
         }
 
         public async Task<Product> Handle(Command request, CancellationToken cancellationToken)
         {
-            var entity = await CreateEntity(new Product(request.Name, request.Price, request.Quantity), cancellationToken);
+            var transaction = await _repository.BeginTransactionAsync<Product>(cancellationToken);
+            try
+            {
+                var entity = await CreateEntity(new Product(request.Name, request.Price, request.Quantity), cancellationToken);
 
-            return entity;
+                await _outbox.PublishDelayAsync(TimeSpan.FromSeconds(10), ProductCreatedOutboxEvent.EventName, new ProductCreatedOutboxEvent(entity), cancellationToken: cancellationToken);
+                await transaction.CommitAsync(cancellationToken);
+
+                return entity;
+            }
+            catch (Exception)
+            {
+                await transaction.RollbackAsync(cancellationToken);
+                throw;
+            }
         }
     }
 }

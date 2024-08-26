@@ -24,9 +24,8 @@ public class BaseCommandHandler
     }
 
     protected async Task<TEntity> CreateEntity<TEntity>(TEntity entity, CancellationToken cancellationToken) where TEntity : BaseEntity, IAggregateRoot
-    {
+    {    
         return await _repository.AddAsync(entity, cancellationToken);
-
     }
 
     protected async Task UpdateEntity<TEntity>(TEntity entity, CancellationToken cancellationToken) where TEntity : BaseEntity, IAggregateRoot
