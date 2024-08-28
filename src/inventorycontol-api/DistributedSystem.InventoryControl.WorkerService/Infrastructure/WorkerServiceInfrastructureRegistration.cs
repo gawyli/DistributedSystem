@@ -11,7 +11,7 @@ public static class WorkerServiceInfrastructureRegistration
 
         services.AddMassTransit(options =>
         {
-            options.AddConsumer<ProductOutOfStockEventHandler>();
+            options.AddConsumer<ProductOutOfStockIntegrationEventHandler>();
 
             options.UsingRabbitMq((ctx, cfg) =>
             {

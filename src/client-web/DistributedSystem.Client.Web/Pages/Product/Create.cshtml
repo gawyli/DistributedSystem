@@ -1,4 +1,27 @@
 ﻿@page
 @model DistributedSystem.Client.Web.Pages.Product.CreateModel
 @{
+    ViewData["Title"] = "Create Product";
 }
+
+<form method="post">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div class="pad-bottom-1em">
+        <label asp-for="Command.Name">Project Name</label><input type="text" asp-for="Command.Name">
+        <span asp-validation-for="Command.Name"></span>
+    </div>
+
+    <div>
+        <label asp-for="Command.Price">Project Price</label><input type="text" asp-for="Command.Price">
+        <span asp-validation-for="Command.Price"></span>
+    </div>
+    <div>
+        <label asp-for="Command.Quantity">Project Quantity</label><input type="text" asp-for="Command.Quantity">
+        <span asp-validation-for="Command.Quantity"></span>
+    </div>
+
+    <div>
+        <submit-button for-command="@Model.Command">Create</submit-button>
+    </div>
+
+</form>
