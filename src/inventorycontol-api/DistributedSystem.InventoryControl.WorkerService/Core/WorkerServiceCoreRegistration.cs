@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DistributedSystem.Shared.Core;
+﻿using DistributedSystem.Shared.Core;
 
 namespace DistributedSystem.InventoryContol.WorkerService.Core;
 public static class WorkerServiceCoreRegistration

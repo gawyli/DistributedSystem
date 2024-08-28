@@ -1,0 +1,46 @@
+﻿@page
+@model DistributedSystem.Client.Web.Pages.Product.ListModel
+@{
+    ViewData["Title"] = "Product List";
+}
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Id</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model.Products)
+        {
+            <tr>
+                <td>
+                    <page-link for-page="@typeof(DetailsModel)" asp-page="/Product/Details" asp-route-id="@product.Id">
+                        @product.Name
+                    </page-link>
+                </td>
+                <td>
+                    <page-link for-page="@typeof(DetailsModel)" asp-page="/Product/Details" asp-route-id="@product.Id">
+                        @product.Id
+                    </page-link>
+                </td>
+                <td>
+                    <div>
+                        <page-link for-page="@typeof(Pages.SaleOff.DetailsModel)" asp-page="/SaleOff/Details" asp-route-id="@product.Id">
+                            Sale Offer Details
+                        </page-link> @* TODO: Render if product.HasSaleOffer; *@
+                    </div>
+                </td>
+               
+            </tr>
+        }
+    </tbody>
+</table>
+
+<page-link for-page="@typeof(CreateModel)" asp-page="/Product/Create">Create</page-link>
+
+@* <page-link for-page="@typeof(Pages.SaleOff.CreateModel)" asp-page="/Product/Create">Create Sale Offer</page-link>
+ *@
+ 

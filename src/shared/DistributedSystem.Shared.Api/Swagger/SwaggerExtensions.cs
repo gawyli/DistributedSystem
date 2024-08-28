@@ -1,10 +1,5 @@
 ﻿using DistributedSystem.Shared.Core.Abstractions;
 using DistributedSystem.Shared.Utility.Extensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DistributedSystem.Shared.Api.Swagger;
 public static class SwaggerExtensions

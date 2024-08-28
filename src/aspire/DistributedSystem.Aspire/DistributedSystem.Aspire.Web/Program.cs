@@ -1,4 +1,3 @@
-using DistributedSystem.Aspire.Web;
 using DistributedSystem.Aspire.Web.Components;
 
 var builder = WebApplication.CreateBuilder(args);

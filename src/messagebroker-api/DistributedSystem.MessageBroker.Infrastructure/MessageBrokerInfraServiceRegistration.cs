@@ -5,13 +5,7 @@ using DistributedSystem.Shared.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DistributedSystem.MessageBroker.Infrastructure;
 public static class MessageBrokerInfraServiceRegistration
@@ -32,7 +26,7 @@ public static class MessageBrokerInfraServiceRegistration
             options.UseNpgsql(configuration.GetConnectionString("messagebrokerdb"), sqlOptions =>
             {
                 // Can't run this _and_ have my own transactions
-                 sqlOptions.ExecutionStrategy(c => new NpgsqlRetryingExecutionStrategy(c));
+                sqlOptions.ExecutionStrategy(c => new NpgsqlRetryingExecutionStrategy(c));
             });
         });
 

@@ -1,11 +1,5 @@
-﻿using DistributedSystem.Shared.Common.IntegrationEvents.Product;
+﻿using DistributedSystem.Shared.Common.Aggregates.ProductAggragate.Events.Integration;
 using MassTransit;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DistributedSystem.Product.WorkerService.Infrastructure.IntegrationEventHandlers;
 

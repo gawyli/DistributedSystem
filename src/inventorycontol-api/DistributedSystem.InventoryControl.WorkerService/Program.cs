@@ -2,7 +2,6 @@
 
 using DistributedSystem.InventoryContol.WorkerService.Core;
 using DistributedSystem.InventoryContol.WorkerService.Infrastructure;
-using Microsoft.Extensions.DependencyInjection;
 
 var builder = Host.CreateApplicationBuilder(args);
 

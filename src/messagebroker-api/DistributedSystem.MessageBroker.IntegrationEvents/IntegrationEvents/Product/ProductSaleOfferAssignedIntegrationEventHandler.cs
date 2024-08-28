@@ -1,10 +1,5 @@
-﻿using DistributedSystem.Shared.Common.IntegrationEvents.Product;
+﻿using DistributedSystem.Shared.Common.Aggregates.ProductAggragate.Events.Integration;
 using MassTransit;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DistributedSystem.MessageBroker.Core.IntegrationEvents.Product;
 public class ProductSaleOfferAssignedIntegrationEventHandler : IConsumer<ProductSaleOfferAssignedIntegrationEvent>

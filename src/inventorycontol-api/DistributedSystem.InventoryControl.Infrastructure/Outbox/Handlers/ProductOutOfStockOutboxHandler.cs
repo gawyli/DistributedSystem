@@ -1,12 +1,7 @@
-﻿using DistributedSystem.InventoryControl.Core.ProductAggregate.Events.Outbox;
-using DistributedSystem.Shared.Common.IntegrationEvents.Product;
+﻿using DistributedSystem.Shared.Common.Aggregates.ProductAggragate.Events.Integration;
+using DistributedSystem.Shared.Common.Aggregates.ProductAggragate.Events.Outbox;
 using DotNetCore.CAP;
 using MassTransit;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DistributedSystem.InventoryControl.Infrastructure.Outbox.Handlers;
 public class ProductOutOfStockOutboxHandler : ICapSubscribe
@@ -25,6 +20,6 @@ public class ProductOutOfStockOutboxHandler : ICapSubscribe
         {
             await _publishEndpoint.Publish(new ProductOutOfStockIntegrationEvent(request.Product.Id, request.Product.StockLevel), cancellationToken);
         }
-          
+
     }
 }

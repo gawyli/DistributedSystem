@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace DistributedSystem.MessageBroker.Api.Controllers;
 
@@ -9,7 +8,7 @@ public class MessageController : ControllerBase
 {
     public MessageController()
     {
-        
+
     }
 
 

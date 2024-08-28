@@ -1,9 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
 
 namespace DistributedSystem.Shared.Api.Controllers;
 
@@ -11,8 +7,10 @@ namespace DistributedSystem.Shared.Api.Controllers;
 [Route("[controller]")]
 public class BaseController : ControllerBase
 {
-    public BaseController()
+    private readonly IMediator _mediator;
+
+    public BaseController(IMediator mediator)
     {
-        
+        _mediator = mediator;
     }
 }

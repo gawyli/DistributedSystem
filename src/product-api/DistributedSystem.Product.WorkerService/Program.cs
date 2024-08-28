@@ -1,4 +1,3 @@
-using DistributedSystem.Product.WorkerService;
 using DistributedSystem.Product.WorkerService.Core;
 using DistributedSystem.Product.WorkerService.Infrastructure;
 

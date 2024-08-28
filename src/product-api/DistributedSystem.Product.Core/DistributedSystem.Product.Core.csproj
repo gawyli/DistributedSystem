@@ -11,10 +11,4 @@
     <ProjectReference Include="..\..\shared\DistributedSystem.Shared.Core\DistributedSystem.Shared.Core.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="SaleOfferAggregate\Commands\" />
-    <Folder Include="SaleOfferAggregate\Events\" />
-    <Folder Include="SaleOfferAggregate\Queries\" />
-  </ItemGroup>
-
 </Project>

@@ -1,12 +1,13 @@
-﻿using DistributedSystem.Product.Core.ProductAggregate.Commands;
-using DistributedSystem.Product.Core.ProductAggregate.Queries;
+﻿using DistributedSystem.Shared.Common.Aggregates.ProductAggregate.Commands;
+using DistributedSystem.Shared.Common.Aggregates.ProductAggregate.Queries;
 using DistributedSystem.Shared.Core.Abstractions;
 using MediatR;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
 namespace DistributedSystem.Product.Api.Controllers;
-
+[EnableCors("AllowAll")]
 [ApiController]
 [Route("api/[controller]")]
 public class ProductController : ControllerBase
@@ -21,7 +22,7 @@ public class ProductController : ControllerBase
     }
 
 
-    [HttpGet("/product/list")]
+    [HttpGet("/products")]
     public async Task<IActionResult> GetProducts(CancellationToken cancellationToken)
     {
         var products = await _mediator.Send(new ListProducts.Query(), cancellationToken);
@@ -29,7 +30,7 @@ public class ProductController : ControllerBase
         return new JsonResult(products);
     }
 
-    [HttpGet("/product/get/id")]
+    [HttpGet("/products/get/id")]
     public async Task<IActionResult> GetProduct(string id, CancellationToken cancellationToken)
     {
         var products = await _mediator.Send(new GetProductById.Query(id), cancellationToken);
@@ -37,7 +38,7 @@ public class ProductController : ControllerBase
         return new JsonResult(products);
     }
 
-    [HttpGet("/product/getSaleOffer/productId")]
+    [HttpGet("/products/getSaleOffer/productId")]
     [SwaggerOperation(
         Summary = "Get Product with Sale Offer")]
     public async Task<IActionResult> GetProductSaleOffer(string id, CancellationToken cancellationToken)
@@ -53,7 +54,7 @@ public class ProductController : ControllerBase
 
             throw new ArgumentNullException(ex.Message);
         }
-        
+
     }
 
     //[HttpGet]
@@ -65,7 +66,7 @@ public class ProductController : ControllerBase
     //}
 
 
-    [HttpPost("/product/create")]
+    [HttpPost("/products/create")]
     [SwaggerOperation(
         Summary = "Creates a Product")]
     public async Task<IActionResult> CreateProduct([FromBody] CreateProduct.Command command, CancellationToken cancellationToken)
@@ -76,12 +77,12 @@ public class ProductController : ControllerBase
         }
 
         var result = await _mediator.Send(command, cancellationToken);
-        
+
 
         return new JsonResult(result);
     }
 
-    [HttpPost("/product/update/id")]
+    [HttpPost("/products/update/id")]
     public async Task<IActionResult> UpdateProduct([FromBody] UpdateProduct.Command command, CancellationToken cancellationToken)
     {
         try
@@ -96,7 +97,7 @@ public class ProductController : ControllerBase
 
     }
 
-    [HttpPost("/product/setSaleOffer/productId")]
+    [HttpPost("/products/setSaleOffer/productId")]
     public async Task<IActionResult> SetProductSaleOffer([FromBody] CreateSaleOffer.Command command, CancellationToken cancellationToken)
     {
         try

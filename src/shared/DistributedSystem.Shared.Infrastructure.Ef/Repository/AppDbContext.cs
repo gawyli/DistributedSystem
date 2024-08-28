@@ -3,12 +3,7 @@ using DistributedSystem.Shared.Core.Entities;
 using DistributedSystem.Shared.Infrastructure.Ef.Repository.Conventers;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DistributedSystem.Shared.Infrastructure.Ef.Repository;
 public abstract class AppDbContext : DbContext

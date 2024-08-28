@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DistributedSystem.Shared.Utility.Extensions;
+﻿namespace DistributedSystem.Shared.Utility.Extensions;
 public static class ActionExtensions
 {
     public static string FormatActionName(this Type actionType)

@@ -1,15 +1,14 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DistributedSystem.Shared.Infrastructure.Ef;
 public static class EntityFrameworkRegistration
 {
     public static IServiceCollection AddEntityFrameworkRepository(this IServiceCollection services)
     {
+        //services.AddScoped<IEntityIdFactory, GuidEntityIdFactory>();
+        //services.AddScoped<EfRepository>();
+        //services.AddScoped<IRepository>(sp => sp.GetRequiredService<EfRepository>());
+        //services.AddScoped<IReadRepository>(sp => sp.GetRequiredService<EfRepository>());
 
         return services;
     }

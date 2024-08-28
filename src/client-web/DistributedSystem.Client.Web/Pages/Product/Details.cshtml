@@ -1,0 +1,43 @@
+﻿@page "{id}"
+@model DistributedSystem.Client.Web.Pages.Product.DetailsModel
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+@if (!string.IsNullOrEmpty(Model.Message))
+{
+    <h2>@Model.Message</h2>
+}
+else if (Model.Product is not null)
+{
+    <h2>Details of Product: @Model.Product.Id</h2>
+
+    <h3>Name: </h3>
+    @Model.Product.Name
+
+    <h3>Price: </h3>
+    @Model.Product.Price
+
+    <h3>Quantity: </h3>
+    @Model.Product.Quantity
+
+
+    if (Model.Product.SaleOffer != null)
+    {
+        var saleOffer = Model.Product.SaleOffer;
+
+        <b>SaleOffer:</b>
+        @*TODO: Add brief details*@
+        @*TODO: Add link to details*@
+    }
+    else
+    {
+        <div>
+            <page-link for-page="@typeof(SetSaleOfferModel)" asp-page="/Product/SetSaleOffer" asp-route-id="@Model.Product.Id">
+                Assign Sale Offer
+            </page-link>
+        </div>
+    }
+
+    <page-link for-page="@typeof(UpdateModel)" asp-page="/Product/Update" asp-route-id="@Model.Product.Id" class="btn btn-primary">Update</page-link>
+}

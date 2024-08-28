@@ -17,14 +17,13 @@ public static class ProductApiRegistration
             c.EnableAnnotations();
         });
 
-        
+
 
         return services;
     }
 
     public static WebApplication UseApi(this WebApplication app, IConfigurationRoot configuration)
     {
-
         app.UseHttpsRedirection();
 
         // Configure the HTTP request pipeline.
@@ -36,6 +35,8 @@ public static class ProductApiRegistration
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "Product API V1");
             });
         }
+
+        app.UseCors("AllowAll");
 
         app.MapDefaultControllerRoute();
         app.MapDefaultEndpoints();

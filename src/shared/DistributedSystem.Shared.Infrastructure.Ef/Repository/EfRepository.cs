@@ -5,12 +5,7 @@ using DistributedSystem.Shared.Core.Entities;
 using DistributedSystem.Shared.Core.Handlers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.DynamicLinq;
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DistributedSystem.Shared.Infrastructure.Ef.Repository;
 public abstract class EfRepository : IRepository, IDbContextAccessor
@@ -141,7 +136,7 @@ public abstract class EfRepository : IRepository, IDbContextAccessor
     //    return await specificationResult.ToListAsync(cancellationToken);
     //}
 
-    
+
 
     /// <inheritdoc />
     //public Task<int> CountAsync<T>(ISpecification<T> specification, CancellationToken cancellationToken)
@@ -175,5 +170,5 @@ public abstract class EfRepository : IRepository, IDbContextAccessor
         return SpecificationEvaluator.Default.GetQuery(_sqlDbContext.Set<T>().AsQueryable(), specification);
     }
 
-    
+
 }

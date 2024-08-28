@@ -1,0 +1,26 @@
+﻿@page "{id}"
+@model DistributedSystem.Client.Web.Pages.Product.UpdateModel
+@{
+    ViewData["Title"] = "Update Product";
+}
+
+<form method="post">
+    <div asp-validation-summary="ModelOnly"></div>
+    <input type="hidden" asp-for="Command.Id">
+    <div>
+        <label asp-for="Command.Name">Project Name</label>
+    </div>
+
+    <div>
+        <label asp-for="Command.Price">Product Price</label><input type="text" asp-for="Command.Price">
+        <span asp-validation-for="Command.Price"></span>
+    </div>
+    <div>
+        <label asp-for="Command.Quantity">Product Quantity</label><input type="text" asp-for="Command.Quantity">
+        <span asp-validation-for="Command.Quantity"></span>
+    </div>
+
+    <div>
+        <submit-button for-command="@Model.Command">Update</submit-button>
+    </div>
+</form>

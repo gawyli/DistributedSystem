@@ -80,7 +80,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DistributedSystem.Inventory
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DistributedSystem.InventoryControl.Core", "src\inventorycontol-api\DistributedSystem.InventoryControl.Core\DistributedSystem.InventoryControl.Core.csproj", "{B92C0C3F-1A66-4623-B444-55ADA03EF655}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistributedSystem.InventoryControl.Infrastructure", "src\inventorycontol-api\DistributedSystem.InventoryControl.Infrastructure\DistributedSystem.InventoryControl.Infrastructure.csproj", "{6C702058-D00D-4DA7-906E-0A63721F2443}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DistributedSystem.InventoryControl.Infrastructure", "src\inventorycontol-api\DistributedSystem.InventoryControl.Infrastructure\DistributedSystem.InventoryControl.Infrastructure.csproj", "{6C702058-D00D-4DA7-906E-0A63721F2443}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

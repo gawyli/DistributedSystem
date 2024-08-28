@@ -1,16 +1,10 @@
 ﻿using DistributedSystem.Shared.Infrastructure.Ef.Entities;
-using DistributedSystem.Product.Core.ProductAggregate;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace DistributedSystem.Product.Infrastructure.Repository.Configuration;
-public class ProductConfiguration : BaseEntityConfiguration<DistributedSystem.Product.Core.ProductAggregate.Product>
+public class ProductConfiguration : BaseEntityConfiguration<DistributedSystem.Shared.Common.Aggregates.ProductAggragate.Product>
 {
-    public override void Configure(EntityTypeBuilder<Core.ProductAggregate.Product> builder)
+    public override void Configure(EntityTypeBuilder<DistributedSystem.Shared.Common.Aggregates.ProductAggragate.Product> builder)
     {
         base.Configure(builder);
 
@@ -19,10 +13,10 @@ public class ProductConfiguration : BaseEntityConfiguration<DistributedSystem.Pr
             .IsRequired();
 
         builder.Property(x => x.Price)
-            .HasPrecision(6,2)
+            .HasPrecision(6, 2)
             .IsRequired();
 
-        builder.Property(x => x.Quantity)    
+        builder.Property(x => x.Quantity)
             .IsRequired();
 
 

@@ -1,13 +1,5 @@
-﻿using Ardalis.Specification;
-using DistributedSystem.Shared.Core.Abstractions;
+﻿using DistributedSystem.Shared.Core.Abstractions;
 using DistributedSystem.Shared.Core.Entities;
-using MediatR;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DistributedSystem.Shared.Core.Handlers;
 

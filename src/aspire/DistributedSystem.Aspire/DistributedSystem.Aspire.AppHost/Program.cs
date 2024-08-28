@@ -2,10 +2,6 @@ using Microsoft.Extensions.Hosting;
 
 var builder = DistributedApplication.CreateBuilder(args);
 
-
-//builder.AddProject<Projects.DistributedSystem_Aspire_Web>("webfrontend")
-//    .WithExternalHttpEndpoints();
-
 #region MessageBus
 var rabbit_username = builder.AddParameter("rabbitusername", secret: true);
 var rabbit_password = builder.AddParameter("rabbitpassword", secret: true);
@@ -13,17 +9,18 @@ var rabbit_password = builder.AddParameter("rabbitpassword", secret: true);
 var messagebus = builder.AddRabbitMQ("messagebus", userName: rabbit_username, password: rabbit_password)
     .WithManagementPlugin()
     .WithHttpEndpoint(port: 15672, targetPort: 15672);
+
 #endregion
 
 #region Postgres
 
-var pg_username = builder.AddParameter("pgusername", secret: true);
-var pg_password = builder.AddParameter("pgpassword", secret: true);
+//var pg_username = builder.AddParameter("pgusername", secret: true);
+//var pg_password = builder.AddParameter("pgpassword", secret: true);
 
-var postgres = builder.AddPostgres("postgres", userName: pg_username, password: pg_password)
-    .WithPgAdmin();
+//var postgres = builder.AddPostgres("postgres", userName: pg_username, password: pg_password)
+//    .WithPgAdmin();
 
-var document_db = postgres.AddDatabase("messagebrokerdb");
+//var document_db = postgres.AddDatabase("messagebrokerdb");
 
 #endregion
 
@@ -47,12 +44,12 @@ var queues = storage.AddQueues("queueconnection");
 
 #region MessageBroker Api
 
-var messagebroker_api = builder.AddProject<Projects.DistributedSystem_MessageBroker_Api>("messagebroker-api")
-    .WithReference(document_db)
-    .WithReference(messagebus);
+//var messagebroker_api = builder.AddProject<Projects.DistributedSystem_MessageBroker_Api>("messagebroker-api")
+//    .WithReference(document_db)
+//    .WithReference(messagebus);
 
-var messagebroker_migration = builder.AddProject<Projects.DistributedSystem_MessageBroker_MigrationService>("messagebroker-migrationservice")
-    .WithReference(document_db);
+//var messagebroker_migration = builder.AddProject<Projects.DistributedSystem_MessageBroker_MigrationService>("messagebroker-migrationservice")
+//    .WithReference(document_db);
 
 #endregion
 
@@ -60,9 +57,8 @@ var messagebroker_migration = builder.AddProject<Projects.DistributedSystem_Mess
 
 var product_db = builder.AddConnectionString("productdb");
 
-var project_api = builder.AddProject<Projects.DistributedSystem_Product_Api>("product-api")
+var product_api = builder.AddProject<Projects.DistributedSystem_Product_Api>("product-api")
     .WithReference(product_db)
-    .WithReference(document_db)
     .WithReference(messagebus);
 
 var product_migration = builder.AddProject<Projects.DistributedSystem_Product_MigrationService>("product-migrationservice")
@@ -80,6 +76,14 @@ var inventory_api = builder.AddProject<Projects.DistributedSystem_InventoryContr
 
 var inventory_workerservice = builder.AddProject<Projects.DistributedSystem_InventoryControl_WorkerService>("inventorycontrol-workerservice")
     .WithReference(messagebus);
+
+#endregion
+
+#region Client Web
+
+var client_web = builder.AddProject<Projects.DistributedSystem_Client_Web>("client-web")
+    .WithExternalHttpEndpoints()
+    .WithReference(product_api);
 
 #endregion
 

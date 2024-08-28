@@ -1,10 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using DistributedSystem.Shared.Core;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DistributedSystem.Shared.Core;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace DistributedSystem.Product.Core;
 public static class ProductApiCoreRegistration
@@ -15,7 +10,6 @@ public static class ProductApiCoreRegistration
 
         // MediatR
         services.AddMediatR(config => config.RegisterServicesFromAssemblyContaining(typeof(ProductApiCoreRegistration)));
-    
 
         // Config
 

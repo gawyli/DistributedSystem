@@ -1,11 +1,5 @@
 ﻿using DistributedSystem.Shared.Core.Abstractions;
 using DistributedSystem.Shared.Core.Entities;
-using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DistributedSystem.Shared.Core.Handlers;
 
@@ -24,7 +18,7 @@ public class BaseCommandHandler
     }
 
     protected async Task<TEntity> CreateEntity<TEntity>(TEntity entity, CancellationToken cancellationToken) where TEntity : BaseEntity, IAggregateRoot
-    {    
+    {
         return await _repository.AddAsync(entity, cancellationToken);
     }
 

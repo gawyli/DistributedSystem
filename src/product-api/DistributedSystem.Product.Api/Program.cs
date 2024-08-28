@@ -6,9 +6,14 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
 
-builder.Services.AddProductApi(builder.Configuration)
-                .AddCore()
-                .AddInfrastructure(builder.Configuration);
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+});
+
+builder.Services.AddCore()
+                .AddInfrastructure(builder.Configuration)
+                .AddProductApi(builder.Configuration);
 
 var app = builder.Build();
 

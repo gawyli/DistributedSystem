@@ -1,10 +1,5 @@
-﻿using DistributedSystem.Product.Core.ProductAggregate;
+﻿using DistributedSystem.Shared.Common.Aggregates.ProductAggragate;
 using DistributedSystem.Shared.Infrastructure.Ef.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DistributedSystem.Product.Infrastructure.Repository.Configuration;
 public class SaleOfferConfiguration : BaseEntityConfiguration<SaleOffer>
