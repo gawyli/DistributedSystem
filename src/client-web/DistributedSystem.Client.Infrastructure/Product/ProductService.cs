@@ -1,5 +1,6 @@
 ﻿
 using DistributedSystem.Client.Core.Interfaces;
+using DistributedSystem.Shared.Common.Aggregates.ProductAggragate;
 using Microsoft.Extensions.Logging;
 using System.Net.Http.Json;
 
@@ -29,13 +30,35 @@ public class ProductService : IProductService
         var products = await response.Content.ReadFromJsonAsync<List<Shared.Common.Aggregates.ProductAggragate.Product>>();
         if (products == null)
         {
-            throw new Exception("No products found");
+            throw new Exception("Failed to deserialize response");
         }
 
         return products!;
     }
 
-    public async Task UpdateProduct(Shared.Common.Aggregates.ProductAggragate.Product product)
+    public async Task<Shared.Common.Aggregates.ProductAggragate.Product> CreateProductAsync(Shared.Common.Aggregates.ProductAggragate.Product product, CancellationToken cancellationToken)
+    {
+        var request = new HttpRequestMessage(HttpMethod.Post, "products/create")
+        {
+            Content = JsonContent.Create(product)
+        };
+
+        var response = await _client.SendAsync(request, cancellationToken);
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception("Failed to create product");
+        }
+
+        var productCreated = await response.Content.ReadFromJsonAsync<Shared.Common.Aggregates.ProductAggragate.Product>(cancellationToken);
+        if (productCreated == null)
+        {
+            throw new Exception("Failed to deserialize response");
+        }
+
+        return productCreated;
+    }
+
+    public async Task UpdateProduct(Shared.Common.Aggregates.ProductAggragate.Product product, CancellationToken cancellationToken)
     {
         var response = await _client.PutAsJsonAsync($"products/{product.Id}", product);
         if (!response.IsSuccessStatusCode)

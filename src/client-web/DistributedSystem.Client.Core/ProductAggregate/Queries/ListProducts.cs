@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DistributedSystem.Client.Core.ProductAggregate.Queries;
-public class GetProducts
+public class ListProducts
 {
     public class Query : IQuery<List<Product>>
     {

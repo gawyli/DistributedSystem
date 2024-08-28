@@ -13,7 +13,7 @@ public class ListModel : BasePageModel
 
     public async Task OnGetAsync(CancellationToken cancellationToken)
     {
-        var products = await _mediator.Send(new GetProducts.Query(), cancellationToken);
+        var products = await _mediator.Send(new ListProducts.Query(), cancellationToken);
 
         this.Products = products;
     }

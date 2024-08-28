@@ -3,11 +3,11 @@ using MassTransit;
 
 namespace DistributedSystem.InventoryControl.WorkerService.Infrastructure.IntegrationEventHandlers;
 
-public class ProductOutOfStockEventHandler : IConsumer<ProductOutOfStockIntegrationEvent>
+public class ProductOutOfStockIntegrationEventHandler : IConsumer<ProductOutOfStockIntegrationEvent>
 {
-    private readonly ILogger<ProductOutOfStockEventHandler> _logger;
+    private readonly ILogger<ProductOutOfStockIntegrationEventHandler> _logger;
 
-    public ProductOutOfStockEventHandler(ILogger<ProductOutOfStockEventHandler> logger)
+    public ProductOutOfStockIntegrationEventHandler(ILogger<ProductOutOfStockIntegrationEventHandler> logger)
     {
         _logger = logger;
     }
